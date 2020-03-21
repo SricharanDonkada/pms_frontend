@@ -1,0 +1,32 @@
+<div class="master-container">
+    <div class="form-card">
+
+        <form [formGroup]="loginForm">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput placeholder="Enter your email address" autocomplete="off">
+                    <mat-error *ngIf="!loginForm.get('email').valid">{{getEmailErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hidePassword?'password':'text'" formControlName="password" matInput placeholder="Enter your password" autocomplete="off">
+                    <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="!loginForm.get('password').valid">{{getPasswordErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+
+        </form>
+
+        <div class="login-button-container">
+            <button mat-raised-button [disabled]="loginForm.invalid" (click)="submitLoginFormData()">Login</button>
+        </div>
+
+    </div>
+
+</div>

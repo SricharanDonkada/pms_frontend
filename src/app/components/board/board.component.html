@@ -1,0 +1,39 @@
+<div class="main-container">
+    <div class="title-bar">
+        <div class="board-title">
+            {{boardService.currnetBoard.title}}
+        </div>
+    </div>
+    <div class="list-container" *ngIf="listService.lists != []">
+        <div class="list-card" *ngFor="let list of listService.lists">
+            <div class="list-title">
+                {{list.title}}
+            </div>
+            <div class="cards-container">
+                <div class="card" *ngFor="let card_id of list.cards">
+                    {{getCardTitle(card_id)}}
+                </div>
+                <button class="card" mat-button>Add card</button>
+            </div>
+        </div>
+        <div class="list-card" *ngIf="newListFlag">
+            <div class="list-title">
+                Create List
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <form [formGroup]="newListForm">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title" placeholder="Enter list title" autocomplete="off">
+                            <mat-error>Title is required</mat-error>
+                        </mat-form-field>
+                    </form>
+                    <button mat-button (click)="createList()" [disabled]="newListForm.invalid">Create</button>
+                    <button mat-button (click)="newListFlag = false">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <button *ngIf="!newListFlag" (click)="newListFlag = true" mat-button class="add-button"> <img src="assets/images/add.png" alt="add"> </button>
+    </div>
+</div>

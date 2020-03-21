@@ -1,0 +1,26 @@
+<div class="main-container">
+    <div class="boards-wraper">
+        <div class="board" (click)="viewBoard(board)" *ngFor="let board of boardService.boards">
+            <p>
+                {{board.title}}
+            </p>
+        </div>
+        <div class="board" *ngIf="newFlag">
+            <div>
+                <form [formGroup]="createBoardForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="title" placeholder="Enter board title" autocomplete="off">
+                        <mat-error>This is an error message</mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="buttons-container">
+                <button mat-button [disabled]="createBoardForm.invalid" (click)="createBoard()">Create</button>
+                <button mat-button (click)="newFlag = false">Cancel</button>
+            </div>
+        </div>
+        <button mat-button *ngIf="!newFlag" class="add-button" (click)="newFlag = true"> <img src="assets/images/add.png" alt="add"> </button>
+    </div>
+    {{boardService.boards | json}}
+</div>
