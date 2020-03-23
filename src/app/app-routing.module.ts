@@ -5,6 +5,7 @@ import { UserSignupComponent } from './components/user-signup/user-signup.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
+import { ShareBoardComponent } from './components/share-board/share-board.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'user-signup',component:UserSignupComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'board', component:BoardComponent},
-  {path:'card-dev',component:CardComponent}
+  {path:'card-dev',component:CardComponent},
+  {path:'share-dev',component:ShareBoardComponent}
 ];
 
 @NgModule({

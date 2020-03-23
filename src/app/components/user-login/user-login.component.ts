@@ -14,8 +14,14 @@ export class UserLoginComponent implements OnInit {
   constructor(private fb:FormBuilder, private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
-    this.autoLogin();
+    // this.autoLogin();
+    if(this.userService.user != undefined){
+      this.router.navigate(['/dashboard']);
+    }
   }
+
+  error="";
+  loginDisabled = false;
 
   hidePassword = true;
 
@@ -38,15 +44,21 @@ export class UserLoginComponent implements OnInit {
   }
 
   submitLoginFormData(){
+    this.loginDisabled = true;
     this.userService.login(this.loginForm.value).subscribe(
       res =>{
         console.log(res);
+        this.loginDisabled = false;
         if(res.message == "success"){
           this.userService.user = res.user;
+          this.userService.setCookie();
           this.router.navigate(['/dashboard']);
+        }else{
+          this.error = res.message;
         }
       },
       err =>{
+        this.loginDisabled = false;
         console.error(err);
       }
     );

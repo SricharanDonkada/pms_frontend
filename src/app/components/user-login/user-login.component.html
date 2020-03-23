@@ -1,6 +1,6 @@
 <div class="master-container">
     <div class="form-card">
-
+        <h1>Login</h1>
         <form [formGroup]="loginForm">
             <div>
                 <mat-form-field appearance="outline">
@@ -23,10 +23,14 @@
 
         </form>
 
-        <div class="login-button-container">
-            <button mat-raised-button [disabled]="loginForm.invalid" (click)="submitLoginFormData()">Login</button>
+        <div class="error-container" *ngIf="error">
+            {{error}}
         </div>
 
+        <div class="login-button-container">
+            <button mat-raised-button [disabled]="loginForm.invalid || loginDisabled" (click)="submitLoginFormData()">Login</button>
+        </div>
+        <a routerLink="/user-signup">Create an account</a>
     </div>
 
 </div>

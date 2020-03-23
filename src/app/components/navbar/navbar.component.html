@@ -1,0 +1,8 @@
+<div class="nav-container">
+    <div class="logo-container">
+        PMS
+    </div>
+    <div class="logout-container" *ngIf="userService.user">
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
+</div>

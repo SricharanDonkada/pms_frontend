@@ -1,0 +1,27 @@
+.nav-container{
+    width:100vw;
+    height:10vh;
+    background-color: #673bb7;
+    display: flex;
+}
+
+.logo-container{
+    height:100%;
+    display: flex;
+    align-items: center;
+    color:white;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: 3px;
+    margin-left:20px;
+}
+
+.logout-container{
+    position: absolute;
+    right:20px;
+    display: flex;
+    align-items: center;
+    color:white;
+    height:10vh;
+    font-size: 17px;
+}

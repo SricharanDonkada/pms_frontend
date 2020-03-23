@@ -1,10 +1,25 @@
 .master-container {
-    height: 100vh;
+    height: 60vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    h1{
+        text-align: center;
+    }
+}
+
+.error-container{
+    color:rgb(219, 7, 7);
+    margin-bottom: 10px;
+    font-size: 15px;
+    max-width: 250px;
+}
+
+a{
+    margin-top: 20px;
+    text-align: center;
 }
 
 .form-card {

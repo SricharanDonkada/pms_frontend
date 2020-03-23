@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.loadBoardsData().then(()=>{
       // this.sortBoards();
-      this.viewBoard(this.boardService.boards[0]);
+      // this.viewBoard(this.boardService.boards[0]);
     });
   }
 

@@ -15,6 +15,10 @@ export class UserSignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  error="";
+  success = false;
+  signupDisabled = false;
+
   confirmPasswordError = false;
   hidePassword = true;
   hideConfirmPassword = true;
@@ -53,12 +57,22 @@ export class UserSignupComponent implements OnInit {
   }
 
   submitSignupFormData(){
+    this.signupDisabled = true;
     this.userService.signup(this.signupForm.value).subscribe(
       res =>{
         console.log(res);
+        this.signupDisabled = false;
+        if(res.message == "success"){
+          this.success = true;
+        }
+        else{
+          this.error = res.message;
+        }
       },
       err =>{
         console.error(err);
+        this.error = "Oops! Something went wrong!";
+        this.signupDisabled = false;
       }
     );
   }

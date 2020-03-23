@@ -1,1 +1,60 @@
-<p>card works!</p>
+<div class="main-container" *ngIf="!cardService.createCardFlag">
+    <div class="view-card-container">
+        <h1>{{cardService.viewCardData.title}}</h1>
+        <div class="description-container">
+            <h3>Description</h3>
+            <p>{{cardService.viewCardData.description}}<p>
+        </div>
+        <div class="checklist-container" *ngIf="cardService.viewCardData.checklist.length>0">
+            <h3>Checklist</h3>
+            <mat-checkbox [(ngModel)]="cardService.viewCardData.checklist[i].status" (click)="updateChecklistStatus()" *ngFor="let checkbox of cardService.viewCardData.checklist;let i = index">{{checkbox.label}}</mat-checkbox>
+
+        </div>
+    </div>
+    <div class="actions-container">
+        <h3>Actions</h3>
+        <mat-form-field>
+            <mat-label>Move To</mat-label>
+            <mat-select>
+              <mat-option>
+                --
+              </mat-option>
+              <mat-option *ngFor="let list of listService.lists" (click)="moveTo(list._id)">
+                {{list.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="footer">
+        <button mat-raised-button (click)="close()">Close</button>
+    </div>
+</div>
+
+<div class="form-container" *ngIf="cardService.createCardFlag">
+    <h1>Create Card</h1>
+    <form [formGroup]="createCardForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput placeholder="Enter list title" autocomplete="off">
+            <mat-error>Title is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Enter card description" autocomplete="off"></textarea>
+            <mat-error>Title is required</mat-error>
+        </mat-form-field>
+        <div class="checklist-array" formArrayName="checklistArray" *ngFor="let item of checklistArray.controls;let i = index;">
+            <mat-form-field appearance="outline">
+                <mat-label>Ckeckbox</mat-label>
+                <input [formControl]="item" matInput placeholder="Enter checkbox label" autocomplete="off">
+                <mat-error>This field cannot be empty</mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-button type="button" (click)="addItem()">Add Checklist Item</button>
+        <button mat-button type="button" (click)="removeItem()">Remove Checklist Item</button>
+    </form>
+        <div class="buttons-container">
+            <button mat-button [disabled]="createCardForm.invalid" (click)="createCard()">Create</button>
+            <button mat-button (click)="close()">Cancel</button>
+        </div>
+</div>

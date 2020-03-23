@@ -1,4 +1,5 @@
 <div class="main-container">
+    <h1>My Boards</h1>
     <div class="boards-wraper">
         <div class="board" (click)="viewBoard(board)" *ngFor="let board of boardService.boards">
             <p>
@@ -20,7 +21,7 @@
                 <button mat-button (click)="newFlag = false">Cancel</button>
             </div>
         </div>
-        <button mat-button *ngIf="!newFlag" class="add-button" (click)="newFlag = true"> <img src="assets/images/add.png" alt="add"> </button>
+        <div class="board add-button" *ngIf="!newFlag" class="add-button" (click)="newFlag = true"> <img src="assets/images/add.png" alt="add"></div>
     </div>
-    {{boardService.boards | json}}
+    <!-- {{boardService.boards | json}} -->
 </div>

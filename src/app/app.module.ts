@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+import { CookieService } from 'ngx-cookie-service'
 
 // ###### MATERIAL MODULES ############
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -24,6 +26,10 @@ import { UserSignupComponent } from './components/user-signup/user-signup.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ShareBoardComponent } from './components/share-board/share-board.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -34,13 +40,16 @@ import { CardComponent } from './components/card/card.component';
     UserSignupComponent,
     DashboardComponent,
     BoardComponent,
-    CardComponent
+    CardComponent,
+    NavbarComponent,
+    ShareBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
@@ -52,9 +61,11 @@ import { CardComponent } from './components/card/card.component';
     MatSidenavModule,
     MatDialogModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatSnackBarModule
 
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

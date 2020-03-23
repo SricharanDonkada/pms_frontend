@@ -1,7 +1,10 @@
 <div class="main-container">
     <div class="title-bar">
         <div class="board-title">
-            {{boardService.currnetBoard.title}}
+            <button mat-button (click)="router.navigate(['/dashboard'])"> <img src="assets/images/back.png" alt=""> </button>{{boardService.currnetBoard.title}}
+        </div>
+        <div class="share-button-container">
+            <button mat-raised-button (click)="shareDialog()">Share</button>
         </div>
     </div>
     <div class="list-container" *ngIf="listService.lists != []">
@@ -10,10 +13,10 @@
                 {{list.title}}
             </div>
             <div class="cards-container">
-                <div class="card" *ngFor="let card_id of list.cards">
-                    {{getCardTitle(card_id)}}
+                <div class="card" (click)="viewCard(card_id)" *ngFor="let card_id of list.cards;index as i">
+                    {{cardTitles[card_id]}}
                 </div>
-                <button class="card" mat-button>Add card</button>
+                <button class="card" mat-button (click)="openDialog(list._id)">Add card</button>
             </div>
         </div>
         <div class="list-card" *ngIf="newListFlag">

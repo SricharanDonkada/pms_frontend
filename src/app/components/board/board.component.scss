@@ -4,12 +4,21 @@
 
 .title-bar {
     width: 100vw;
-    padding: 30px;
+    padding: 20px;
     border-bottom: solid 1px grey;
+    display: flex;
+    align-items: center;
 }
 
 .board-title {
     font-size: 26px;
+    img{
+        height:22px;
+        width:22px;
+    }
+    button{
+        transform: translateY(-6px);
+    }
 }
 
 .list-container {
@@ -56,5 +65,14 @@
                 width: 100%;
             }
         }
+    }
+}
+
+.share-button-container{
+    position: absolute;
+    right:20px;
+    button{
+        background-color: #673bb7;
+        color:white
     }
 }

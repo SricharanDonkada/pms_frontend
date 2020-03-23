@@ -1,10 +1,24 @@
 .master-container {
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    h1{
+        text-align: center;
+    }
+}
+
+a{
+    margin-top: 20px;
+    text-align: center;
+}
+.error-container{
+    color:rgb(219, 7, 7);
+    margin-bottom: 10px;
+    font-size: 15px;
+    max-width:250px;
 }
 
 .form-card {
@@ -32,4 +46,8 @@
     button {
         width: 100%;
     }
+}
+
+.success-container{
+    font-size: larger;
 }

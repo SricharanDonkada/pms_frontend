@@ -1,0 +1,61 @@
+.main-container{
+    background-color: white;
+    width: 40vw;
+    max-height:80vh;
+}
+
+.description-container{
+    width:100%;
+    font-size: 17px;
+    p{
+        margin-left: 20px;
+    }
+}
+
+.checklist-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    mat-checkbox{
+        margin-left: 20px;
+    }
+}
+
+h3{
+    color: #673bb7;
+}
+.actions-container{
+    margin-top: 25px;
+    width:100%;
+
+    mat-form-field{
+        margin-left: 20px;
+    }
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:30px;
+}
+
+.view-card-container{
+    
+}
+
+.form-container{
+    background-color: white;
+    width:40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    max-height: 80vh;
+    overflow-y: auto;
+    mat-form-field{
+        width:90%;
+    }
+}

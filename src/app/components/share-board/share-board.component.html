@@ -1,0 +1,19 @@
+<div class="main-container">
+    <div class="header">Share Board</div>
+    <div class="share-body-container">
+        <form [formGroup]="shareForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Enter the email address" autocomplete="off">
+            <mat-error *ngIf="!shareForm.get('email').valid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </form>
+    </div>
+    <div class="error-container" *ngIf="error">
+        {{error}}
+    </div>
+    <div class="footer">
+    <button mat-button (click)="shareBoard()" [disabled]="shareForm.invalid">Share</button>
+    <button mat-button (click)="close()">Cancel</button>
+    </div>
+</div>

@@ -16,4 +16,8 @@ export class BoardsService {
   public createNewBoard(obj){
     return this.http.post<any>(serverUrl + '/board/new-board',obj);
   }
+
+  public shareBoard(obj){
+    return this.http.post<any>(serverUrl + '/board/share',obj);
+  }
 }

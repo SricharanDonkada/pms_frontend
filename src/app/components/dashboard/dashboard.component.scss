@@ -1,5 +1,5 @@
 .main-container {
-    height: 100%;
+    min-height: 89vh;
     width: 100vw;
 }
 
@@ -9,6 +9,13 @@
     overflow-x: hidden;
     padding: 20px;
     align-items: center;
+    height: 100%;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+    margin-top:50px;
 }
 
 .board {
@@ -36,8 +43,17 @@
 }
 
 .add-button {
+    border-radius: 50%;
+    height: 46px;
+    width:46px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     img {
         height: 45px;
         width: 45px;
     }
+}
+
+.add-button:hover{
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
